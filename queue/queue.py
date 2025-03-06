@@ -3,12 +3,12 @@ class Queue:
         self.queue=[]
     
     def enqueue(self,data):
-         return self.queue.append(data)  # can also use insert instead of appnd
+         return self.queue.insert(0,data)  # can also use insert instead of appnd
 
     def dequeue(self):
         if(self.queue == []):
             print("Queue is Empty")
-        return self.queue.pop()
+        return self.queue.pop(0)
     
     def isEmpty(self):
        return self.queue == [] 

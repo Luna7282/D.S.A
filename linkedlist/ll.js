@@ -21,11 +21,13 @@ linkedlist.prototype.insertatlast = function(data){
 const newnode = new Node(data)
 if(!this.head){
   this.head = newnode
+  return
 }
 
 let last = this.head  // false
-while(!this.head){
+while(!last){
     last = last.next
+    return
 }
 last.next = newnode
 
@@ -41,6 +43,7 @@ linkedlist.prototype.insertAfter = function (data, prevNode){
        prevNode.next = newnode
 
 }
+
 
 
 // delete an element from beginning
@@ -82,10 +85,10 @@ linkedlist.prototype.delElemFromLast= function(){
 
    while(current.next !== null){
     if(current.next.data === key){
-      current.next = current.next.next
+      current.next = null
       return
     }
-    current.next=current
+    current = current.next
    }
 
    console.log(`No node Found with key : ${key}`);
@@ -141,12 +144,13 @@ linkedlist.prototype.che=function(){
 
 let ll = new linkedlist
 ll.insertAtBegining(32)
-ll.insertAfter(12,32)
-ll.insertAfter(21,2)
-ll.insertatlast(23)
+// ll.insertAfter(12,32)
+// ll.insertAfter(21,2)
+// ll.insertatlast(23)
 ll.insertatlast(34)
 
 console.log(ll.Serc(12));
 ll.Trav()
 ll.reverse()
 ll.Trav()
+console.log(ll.che())
